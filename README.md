@@ -1,3 +1,17 @@
+---
+title: Safe Code Eval
+colorFrom: blue
+colorTo: red
+sdk: gradio
+sdk_version: 3.19.1
+app_file: app.py
+pinned: false
+tags:
+- evaluate
+- metric
+description: A safer variant of the Code Eval
+---
+
 # Metric Card for Safe Code Eval
 
 ## Metric Description
