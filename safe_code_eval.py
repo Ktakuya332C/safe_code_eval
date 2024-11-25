@@ -89,7 +89,7 @@ class SafeCodeEval(evaluate.Metric):
             reference_urls=["http://github.com/Ktakuya332C/safer-code-eval"],
         )
 
-    def _compute(self, predictions, references, k=[1, 10, 100], timeout=5.0):
+    def _compute(self, predictions, references, k=[1, 10, 100], timeout=10.0):
         """Returns the scores"""
 
         # Runs the code
