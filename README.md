@@ -1,28 +1,24 @@
 ---
 title: Safe Code Eval
-datasets:
--  
 tags:
 - evaluate
 - metric
-description: "TODO: add a description here"
-sdk: gradio
-sdk_version: 3.19.1
-app_file: app.py
-pinned: false
+description: safer variant of the Code Eval
 ---
 
 # Metric Card for Safe Code Eval
 
-***Module Card Instructions:*** *Fill out the following subsections. Feel free to take a look at existing metric cards if you'd like examples.*
-
 ## Metric Description
-*Give a brief overview of this metric, including what task(s) it is usually used for, if any.*
+Safer variant of the Code Eval
+
+## Requirements
+- deno : https://deno.com/
 
 ## How to Use
-*Give general statement of how to use the metric*
-
-*Provide simplest possible example for using the metric*
+```python
+import evaluate
+safe_code_eval = evaluate.load("ktakuya/safe_code_eval")
+```
 
 ### Inputs
 *List all input arguments in the format below*
