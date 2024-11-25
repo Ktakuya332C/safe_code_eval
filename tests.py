@@ -20,6 +20,14 @@ class TestSafeCodeEval(unittest.TestCase):
         )
         pass_at_k == {"pass@1": 0.5, "pass@2": 1.0}
 
+        pass_at_k, results = inst.compute(
+            references=test_cases,
+            predictions=candidates,
+            k=[1, 2],
+            timeout=0,
+        )
+        pass_at_k == {"pass@1": 0.0, "pass@2": 0.0}
+
     def test_execute(self):
         code = "1 + 1"
         result = _execute(code, timeout=5.0)

@@ -152,12 +152,21 @@ def _execute_internal(tmpdir, code, timeout):
         fout.write(code)
     with path_ts.open("w") as fout:
         fout.write(MAIN_TS.format(path_py=path_py))
-    proc = subprocess.run(
-        args=["deno", "run", "--allow-read", path_ts],
-        capture_output=True,
-        timeout=timeout,
-        env=os.environ | {"NO_COLOR": "1"},
-    )
+    try:
+        proc = subprocess.run(
+            args=["deno", "run", "--allow-read", path_ts],
+            capture_output=True,
+            timeout=timeout,
+            env=os.environ | {"NO_COLOR": "1"},
+        )
+    except subprocess.TimeoutExpired as e:
+        return {
+            "passed": False,
+            "result": str(e),
+            "exitcode": None,
+            "stdout": "",
+            "stderr": "",
+        }
     stderr = proc.stderr.decode("utf-8").rstrip("\n")
     stdout = proc.stdout.decode("utf-8").rstrip("\n")
     return {
