@@ -1,20 +1,9 @@
----
-title: Safe Code Eval
-colorFrom: blue
-colorTo: red
-tags:
-- evaluate
-- metric
-description: A safer variant of the Code Eval
----
-
-# Metric Card for Safe Code Eval
-
-## Metric Description
+# Safe Code Eval
 Safer variant of the Code Eval
 
 ## Requirements
 - deno : https://deno.com/
+- numpy
 
 ## How to Use
 ```python
@@ -31,4 +20,7 @@ print(pass_at_k)  # {'pass@1': 0.5, 'pass@2': 1.0}
 isort --profile=black . && black .
 # tests
 python -m unittest tests.py
+# push
+git push origin main # huggingface
+git push mirror main # github
 ```
